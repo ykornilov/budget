@@ -1,0 +1,20 @@
+{
+  "name": "budget",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ykornilov/budget.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ykornilov/budget/issues"
+  },
+  "homepage": "https://github.com/ykornilov/budget#readme"
+}
