@@ -1,0 +1,18 @@
+pids
+logs
+results
+tmp
+
+# Build
+build
+test-reports
+
+# Dependency directory
+node_modules
+
+# Editors
+.idea
+.vscode
+
+# OS metadata
+.DS_Store

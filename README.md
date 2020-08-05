@@ -23,3 +23,17 @@
     "editor.formatOnSave": true
   },
 ```
+
+Для линтинга кода применяется плагин
+[dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+Настройки для workspace в VS Code:
+```
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.format.enable": false
+```
