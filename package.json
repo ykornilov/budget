@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ykornilov/budget/issues"
   },
-  "homepage": "https://github.com/ykornilov/budget#readme"
+  "homepage": "https://github.com/ykornilov/budget#readme",
+  "devDependencies": {
+    "typescript": "3.9.7"
+  }
 }
