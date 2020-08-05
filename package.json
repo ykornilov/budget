@@ -6,6 +6,7 @@
   "scripts": {
     "lint:js": "eslint --ext .js,.ts,.tsx .",
     "lint:typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint:css": "stylelint \"**/*.css\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +27,9 @@
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-react": "7.20.5",
     "prettier": "2.0.5",
+    "stylelint": "13.6.1",
+    "stylelint-config-standard": "20.0.0",
+    "stylelint-order": "4.1.0",
     "typescript": "3.9.7"
   }
 }

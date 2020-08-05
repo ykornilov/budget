@@ -37,3 +37,11 @@
   ],
   "eslint.format.enable": false
 ```
+
+Для линтинга стилей применяется плагин
+[stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint)
+
+Настройки для workspace в VS Code:
+```
+  "css.validate": false
+```
