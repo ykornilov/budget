@@ -4,11 +4,26 @@
   "description": "",
   "private": true,
   "scripts": {
+    "lint": "run-p lint:*",
     "lint:js": "eslint --ext .js,.ts,.tsx .",
     "lint:typecheck": "tsc -p tsconfig.json --noEmit",
     "lint:css": "stylelint \"**/*.css\"",
     "test": "jest",
-    "test:report": "npm test -- --coverage"
+    "test:coverage:check": "npm test -- --coverage",
+    "test:report": "cross-env-shell COVERAGE_DIR=test-reports npm run test:coverage:check"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:typecheck && lint-staged",
+      "pre-push": "npm run test:coverage:check"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint",
+      "jest --bail --findRelatedTests"
+    ],
+    "frontend/src/**/*.css": "stylelint"
   },
   "repository": {
     "type": "git",
@@ -33,6 +48,7 @@
     "@typescript-eslint/eslint-plugin": "3.8.0",
     "@typescript-eslint/parser": "3.8.0",
     "babel-jest": "26.2.2",
+    "cross-env": "7.0.2",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.2",
     "enzyme-to-json": "3.5.0",
@@ -40,7 +56,10 @@
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-jest": "23.20.0",
     "eslint-plugin-react": "7.20.5",
+    "husky": "4.2.5",
     "jest": "26.2.2",
+    "lint-staged": "10.2.11",
+    "npm-run-all": "4.1.5",
     "prettier": "2.0.5",
     "stylelint": "13.6.1",
     "stylelint-config-standard": "20.0.0",
