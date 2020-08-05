@@ -32,6 +32,12 @@ module.exports = {
     rules: {},
     overrides: [
         {
+            files: ['frontend/**/*.js'],
+            rules: {
+                '@typescript-eslint/explicit-module-boundary-types': ['off'],
+            },
+        },
+        {
             files: ['frontend/**/*.{ts,tsx}'],
             env: {
                 browser: true,
