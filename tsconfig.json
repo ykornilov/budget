@@ -67,6 +67,6 @@
     "forceConsistentCasingInFileNames": true, /* Disallow inconsistently-cased references to the same file. */
     "resolveJsonModule": true
   },
-  "include": ["backend/src/**/*", "frontend/src/**/*"],
+  "include": ["configs/typescript/*", "backend/src/**/*", "frontend/src/**/*"],
   "exclude": ["node_modules", "*/**/*.spec.js"]
 }
