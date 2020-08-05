@@ -5,6 +5,8 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
+        'plugin:jest/recommended',
+        'plugin:jest/style',
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
         'prettier',
@@ -21,7 +23,7 @@ module.exports = {
         ecmaVersion: 11,
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint'],
+    plugins: ['react', '@typescript-eslint', 'jest'],
     settings: {
         react: {
             version: 'detect',
