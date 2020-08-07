@@ -10,6 +10,9 @@ test-reports
 # Dependency directory
 node_modules
 
+# Environment variables
+.env
+
 # Editors
 .idea
 .vscode
