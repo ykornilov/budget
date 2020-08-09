@@ -5,8 +5,13 @@ import addRequestId from 'express-request-id';
 import cookieParser from 'cookie-parser';
 import { graphQLPath } from './constants';
 import { IServices } from './@types/services';
+import { AnyError } from './@types/anyError';
+import { passportInit } from './passport';
+import { AuthController, ApiController } from './controllers';
 
 export const createExpressMiddleware = (services: IServices): Application => {
+    passportInit(services);
+
     const app: Application = express();
 
     // logger
@@ -16,11 +21,11 @@ export const createExpressMiddleware = (services: IServices): Application => {
     app.use(logger('[:date[iso] #:requestId] Completed :status :res[content-length] in :response-time ms'));
 
     // parsers
+    app.use(express.json());
     app.use(cookieParser());
 
-    app.use('/api', (req: Request, res: Response, next: NextFunction) => {
-        next();
-    });
+    app.use('/api/auth', new AuthController().router);
+    app.use('/api/graphql', new ApiController().router);
 
     // catch 404 and forward to error handler
     app.use((req: Request, res: Response, next: NextFunction): void => {
@@ -29,7 +34,7 @@ export const createExpressMiddleware = (services: IServices): Application => {
     });
 
     // error handler
-    app.use((err: any, req: Request, res: Response, next: NextFunction): void => {
+    app.use((err: AnyError, req: Request, res: Response, next: NextFunction): void => {
         if (req.url === graphQLPath) return next();
 
         // set locals, only providing error in development
