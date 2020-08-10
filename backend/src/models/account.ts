@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType, ForeignKey } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, ForeignKey, Default } from 'sequelize-typescript';
 import { AccountAttributes } from '~/@types/account';
 import { User } from './user';
 
@@ -18,8 +18,14 @@ export class Account extends Model<AccountAttributes> {
     @Column
     account!: string;
 
+    @Default(0)
     @Column(DataType.DECIMAL)
-    balance!: number;
+    get balance(): number {
+        return Number(this.getDataValue('balance'));
+    }
+    set balance(value: number) {
+        this.setDataValue('balance', value);
+    }
 
     @ForeignKey(() => User)
     @Column

@@ -6,6 +6,7 @@ type Args = {
     password: string;
 };
 
-export const addUser = (_parent: undefined, args: Args, context: IContext): Promise<User> => {
-    return context.services.userService.addUser(args);
+export const addUser = (parent: undefined, args: Args, context: IContext): Promise<User> => {
+    const { services } = context;
+    return services.userService.addUser(args);
 };

@@ -1,5 +1,11 @@
-import { addUser } from './user/addUser';
+import * as user from './user';
+import * as account from './account';
+import * as category from './category';
+import * as operation from './operation';
 
 export default {
-    addUser,
+    ...user,
+    ...account,
+    ...category,
+    ...operation,
 };

@@ -15,11 +15,14 @@ module.exports = {
             balance: {
                 allowNull: false,
                 type: Sequelize.DECIMAL,
+                defaultValue: 0,
             },
             userId: {
                 allowNull: false,
                 type: Sequelize.INTEGER,
                 references: { model: 'Users', key: 'id' },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
             createdAt: {
                 allowNull: false,

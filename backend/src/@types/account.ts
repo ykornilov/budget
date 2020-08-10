@@ -5,5 +5,5 @@ export type AccountAttributes = {
     userId: number;
 };
 
-export type AccountCreatingAttributes = Omit<AccountAttributes, 'id'>;
-export type AccountUpdatingAttributes = Partial<AccountCreatingAttributes>;
+export type AccountCreatingAttributes = Omit<AccountAttributes, 'id' | 'balance'>;
+export type AccountUpdatingAttributes = Partial<Omit<AccountAttributes, 'id'>>;

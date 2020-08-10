@@ -20,16 +20,22 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.INTEGER,
                 references: { model: 'Accounts', key: 'id' },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
             categoryId: {
                 allowNull: false,
                 type: Sequelize.INTEGER,
                 references: { model: 'Categories', key: 'id' },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
             userId: {
                 allowNull: false,
                 type: Sequelize.INTEGER,
                 references: { model: 'Users', key: 'id' },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
             createdAt: {
                 allowNull: false,
