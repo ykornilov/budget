@@ -6,6 +6,10 @@ import { Account } from '~/models/account';
 export class AccountService {
     constructor(private readonly accountRepository: Repository<Account>) {}
 
+    getAllAccounts(userId: number, transaction?: Transaction): Promise<Account[]> {
+        return this.accountRepository.findAll({ where: { userId }, transaction });
+    }
+
     getAccount(userId: number, accountId: AccountAttributes['id'], transaction?: Transaction): Promise<Account> {
         return this.accountRepository.findOne({ where: { id: accountId, userId }, transaction });
     }

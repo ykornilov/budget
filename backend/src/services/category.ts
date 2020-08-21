@@ -6,6 +6,10 @@ import { Category } from '~/models/category';
 export class CategoryService {
     constructor(private readonly categoryRepository: Repository<Category>) {}
 
+    getAllCategories(userId: number, transaction?: Transaction): Promise<Category[]> {
+        return this.categoryRepository.findAll({ where: { userId }, transaction });
+    }
+
     getCategory(userId: number, categoryId: CategoryAttributes['id'], transaction?: Transaction): Promise<Category> {
         return this.categoryRepository.findOne({ where: { id: categoryId, userId }, transaction });
     }

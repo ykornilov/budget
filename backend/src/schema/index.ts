@@ -3,6 +3,9 @@ import { gql } from 'apollo-server-express';
 const typeDef = gql`
     type Query {
         findUserByEmail(email: String!): User
+        getAllAccounts: [Account!]!
+        getAllCategories: [Category!]!
+        getAllOperations: [Operation!]!
     }
 
     type Mutation {

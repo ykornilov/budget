@@ -1,5 +1,11 @@
-import { findUserByEmail } from './user/findUserByEmail';
+import * as user from './user';
+import * as account from './account';
+import * as category from './category';
+import * as operation from './operation';
 
 export default {
-    findUserByEmail,
+    ...user,
+    ...account,
+    ...category,
+    ...operation,
 };
